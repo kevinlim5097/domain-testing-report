@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Testing Report</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 36px;
+            padding-top: 40px;
+            font-weight: bold;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Domain Testing Report Generator</h1>
+    <div style="text-align: center;">
+        <!-- 按钮，点击时触发 generateReport() 函数 -->
+        <button class="button" onclick="generateReport()">Generate Report</button>
+    </div>
+
+    <script>
+        // 生成报告的函数
+        function generateReport() {
+            // 发起 fetch 请求到后端 API，生成报告
+            fetch('https://your-api-url.com/generate_report', { method: 'GET' })
+                .then(response => response.json()) // 解析返回的 JSON 数据
+                .then(data => {
+                    // 根据返回的数据进行处理，显示报告生成成功的信息
+                    alert("Report generated successfully!");
+                })
+                .catch(error => {
+                    // 如果请求失败，显示错误信息
+                    console.error('Error:', error);
+                    alert("Failed to generate report.");
+                });
+        }
+    </script>
+</body>
+</html>
